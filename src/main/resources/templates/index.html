@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<style>
+    th{
+   background: white;
+  position: sticky;
+  top: 0; /* Don't forget this, required for the stickiness */
+  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+    }
+
+</style>
+<body style="background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20190123/pngtree-blue-brilliant-background-of-the-earths-galaxy-image_1494.jpg');">
+<div style="color:white; margin-left:50%;">
+    <h1>Covid-19 Takip Uygulaması</h1>
+    <h2 style="margin-left:15%;">Güncel İstatistikler</h2>
+</div>
+
+<div class="row">
+    <div class="col-sm-3">
+        <div class="card" style="width: 18rem; position:fixed">
+            <img src="https://i2.milimaj.com/i/milliyet/75/0x410/5e68dd0655427e1e64ba295c.jpg" class="card-img-top"
+                 alt="...">
+            <div class="card-body">
+                <h1 class="display-4" th:text="${totalReportedCases}"></h1>
+                <p class="lead">Toplam Güncel Vaka Sayısı</p>
+                <hr class="my-4">
+                <p>
+                    <span>Önceki günden beri bildirilen yeni vakalar:</span>
+                <h3><span th:text="${totalNewCases}"></span></h3>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-9">
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">State</th>
+                <th scope="col">Country</th>
+                <th scope="col">Total cases reported</th>
+                <th scope="col">Changes since last day</th>
+            </tr>
+            </thead>
+            <tbody style="background-color:white;">
+            <tr th:each="locationStat : ${locationStats}">
+                <td th:text="${locationStat.konum}"></td>
+                <td th:text="${locationStat.ulke}"></td>
+                <td th:text="${locationStat.toplamVaka}"></td>
+                <td th:text="${locationStat.birOncekiGundenFarki}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+</body>
+</html>
