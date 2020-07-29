@@ -1,3 +1,5 @@
 # CoronaVirusTracker
-Corona Virus Tracker Application-Spring Boot
+Corona Virüs İstatistik Takip Uygulaması
+Dünyadaki Toplam Vaka Sayısı
+Ülke ülke Covid-19 verileri
 
